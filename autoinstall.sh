@@ -10,3 +10,6 @@ DEBIAN_FRONTEND=noninteractive apt-get -qq -o DPkg::Lock::Timeout=-1 install des
 systemctl disable lightdm colord
 # https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#choose_a_different_desktop_environment
 echo exec /etc/X11/Xsession /usr/bin/xfce4-session >/etc/chrome-remote-desktop-session
+# https://superuser.com/a/1153084
+echo CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES=1920x1080 >> /etc/environment
+# DISPLAY=:20.0 google-chrome --no-first-run --no-default-browser-check
