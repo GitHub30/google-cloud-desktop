@@ -13,3 +13,4 @@ echo exec /etc/X11/Xsession /usr/bin/xfce4-session >/etc/chrome-remote-desktop-s
 # https://superuser.com/a/1153084
 echo CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES=1920x1080 >> /etc/environment
 # DISPLAY=:20.0 google-chrome --no-first-run --no-default-browser-check
+# Disable ウィンドウに合わせてサイズ変更 on Chrome Remote Desktop Client
