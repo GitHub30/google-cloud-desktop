@@ -5,5 +5,3 @@ apt-get -qq update
 DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Lock::Timeout=60 install -qq desktop-base xscreensaver dbus-x11 xfce4 task-xfce-desktop less bzip2 zip unzip tasksel wget chrome-remote-desktop google-chrome-stable
 systemctl disable lightdm
 echo exec xfce4-session >/etc/chrome-remote-desktop-session
-
-echo startup-script completed
