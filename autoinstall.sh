@@ -8,4 +8,4 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 apt-get install --assume-yes --fix-broken google-chrome-stable_current_amd64.deb
 rm google-chrome-stable_current_amd64.deb
 
-echo Chrome remote desktop installation completed
+echo startup-script completed
