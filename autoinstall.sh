@@ -5,5 +5,8 @@ echo deb [arch=amd64] https://dl.google.com/linux/chrome/deb stable main >>/etc/
 while fuser /var/lib/apt/lists/lock; do sleep 1; done
 apt-get -qq update
 DEBIAN_FRONTEND=noninteractive apt-get -qq -o DPkg::Lock::Timeout=-1 install desktop-base xscreensaver dbus-x11 xfce4 task-xfce-desktop less bzip2 zip unzip tasksel wget chrome-remote-desktop google-chrome-stable
-systemctl disable colord lightdm
+# https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#:~:text=disable%20the%20display%20manager
+# https://zenn.dev/google_cloud_jp/articles/chrome-remote-desktop#:~:text=colord
+systemctl disable lightdm colord
+# https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#choose_a_different_desktop_environment
 echo exec /etc/X11/Xsession /usr/bin/xfce4-session >/etc/chrome-remote-desktop-session
