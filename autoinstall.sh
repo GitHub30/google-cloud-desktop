@@ -1,12 +1,9 @@
-curl https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /etc/apt/trusted.gpg.d/google.gpg
+curl -s https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /etc/apt/trusted.gpg.d/google.gpg
 echo deb [arch=amd64] https://dl.google.com/linux/chrome-remote-desktop/deb stable main | tee -a /etc/apt/sources.list.d/chrome-remote-desktop.list
+echo deb [arch=amd64] https://dl.google.com/linux/chrome/deb stable main | tee -a /etc/apt/sources.list.d/chrome.list
 apt-get update
-DEBIAN_FRONTEND=noninteractive apt install --assume-yes desktop-base xscreensaver dbus-x11 xfce4 task-xfce-desktop less bzip2 zip unzip tasksel wget chrome-remote-desktop
-systemctl disable lightdm.service
+DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Lock::Timeout=60 install -yq desktop-base xscreensaver dbus-x11 xfce4 task-xfce-desktop less bzip2 zip unzip tasksel wget chrome-remote-desktop google-chrome-stable
+systemctl disable lightdm
 echo exec xfce4-session > /etc/chrome-remote-desktop-session
-
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-apt install --assume-yes --fix-broken google-chrome-stable_current_amd64.deb
-rm google-chrome-stable_current_amd64.deb
 
 echo startup-script completed
